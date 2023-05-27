@@ -1,0 +1,364 @@
+:root{
+    --primary-color: #4c9eff;
+    --text-color: #333;
+}
+  
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+  
+body{
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  animation: bgMove 110s linear infinite;
+  -webkit-animation: bgMove 110s linear infinite;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+}
+
+  
+.player {
+    max-width: 480px;
+    margin: auto;
+}
+  
+.player .icon-pause {
+    display: none;
+}
+  
+.player.playing .icon-pause {
+    display: inline-block;
+}
+  
+.player.playing .icon-play {
+    display: none;
+}
+  
+.dashboard { 
+    position: relative;
+    padding: 16px 16px 14px;
+    background-color: #fff;
+    margin: 100px auto;
+    width: 382px;
+    height: 530px;
+    max-width: 480px;
+    border-bottom: 2px solid #ebebeb;
+    border-radius: 20px;
+}
+
+
+  /* HEADER */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+  
+header h4 {
+    color: var(--primary-color);
+    font-size: 15px;
+    margin-left: 8px;
+}
+
+/* CD */
+.cd {
+    display: flex;
+    margin: auto;
+    width: 200px;
+}
+  
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-color: #333;
+    background-size: cover;
+    margin: auto;
+}
+/* SONG INFORMATION */
+.song{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 30px;
+  padding: auto;
+}
+
+.song__name{
+  text-align: center;
+  font-size: 16px;
+}
+
+.list-music__icon{
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.favourite-music__icon{
+  font-size: 28px;
+}
+
+.favourite-music__icon .heart-icon__red{
+  display: none;
+}
+
+.favourite-music__icon.active .heart-icon__red{
+  display: block !important;
+  color: #ff3300;
+}
+
+.favourite-music__icon.active .heart-icon{
+  display: none !important;
+}
+
+
+/* CONTROL */
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 8px 0;
+}
+  
+.control .btn {
+    color: #b7b7b7;
+    padding: 18px;
+    font-size: 20px;
+}
+
+.control .btn:hover{
+  color: #0a0a0a;
+}
+  
+.control .btn.active {
+    color: var(--primary-color);
+}
+
+  
+  
+.control .btn-toggle-play {
+    width: 57px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+  
+.progress { 
+    width: 100%;
+    height: 20px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* VOLUME */
+.volume{
+  display: flex;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: var(--primary-color);
+  outline: none;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.volume__icon{
+  font-size: 25px;
+  margin: 0 10px;
+}
+
+.volume__icon .volume__icon--mute {
+  display: none;
+}
+ 
+.volume__icon.active .volume__icon--mute {
+  display: block !important;
+}
+
+.volume__icon.active .volume__icon--on {
+  display: none !important;
+}
+
+.volume-bar-value{
+  margin-top: 5px;
+  opacity: 0.7;
+  cursor: pointer;
+  
+}
+
+.progress-time{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* PLAYLIST */
+.playList{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(100%);
+}
+/* Hiệu ứng khii playlist xuất hiện */
+.playList.list-open {
+  visibility: visible;
+  opacity: 2;
+  transform: translateY(0);
+}
+
+.playList__container{
+  border-radius: 10px;
+  width: 382px;
+  height: 530px;
+  background-color: #fff;
+  transition: 0.5s;
+  z-index: 1;
+  overflow: hidden;
+  top: 59px;
+}
+
+.payList__header{
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 18px 10px 18px;
+  font-size: 18px;
+}
+
+.playList__title{
+  user-select: none;
+  color: var(--primary-color);
+}
+
+.playList__close{
+  font-size: 25px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.playList__list{
+  position: relative;
+  list-style: none;
+  max-height: 430px;
+  overflow-y: scroll;
+}
+
+.playList__list .playList__list-item:hover:not(.active){
+  background: #f7efef;
+  opacity: 0.8;
+}
+
+.playList__list::-webkit-scrollbar{
+  width: 10px;
+}
+
+.playList__list::-webkit-scrollbar-track{
+  background-color: #ffffff;
+  border-radius: 50px;
+}
+
+.playList__list::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  max-height: 5px;
+}
+
+.playList__list::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(#4c9eff, #4c9eff);
+  border-radius: 50px;
+  max-height: 5px;
+} 
+
+.playList__list-item{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  padding: 10px 18px;
+  cursor: pointer;
+}
+
+.playList__list-item.active{
+  border: 2px solid #fff;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+}
+
+.playList__list-item.active .playList__list-item-name, 
+.playList__list-item.active .playList__list-item-singer,
+.playList__list-item.active .playList__item-option{
+  color: #fff;
+}
+
+.playList__list-item-img{
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.playList__list-item-info{
+  margin-left: 10px;
+  text-align: left;
+  flex: 1;
+}
+
+.playList__list-item-name{
+  font-size: 16px;
+  font-weight: 600;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+}
+
+.playList__list-item-singer{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.playList__item-option{
+  font-size: 18px;
+}
+
+/* Hiệu ứng chuyển ảnh background */
+@keyframes bgMove {
+  50% {
+    background-position: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

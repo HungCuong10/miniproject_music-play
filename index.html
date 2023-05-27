@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Playlist</title>
+  <link rel="shortcut icon" href="./assets/img/logo.png">
+  <link rel="stylesheet" href="./assets/css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="player">
+          <!-- Dashboard -->
+          <div class="dashboard">
+              <!-- Header -->
+              <header>
+                <h4>Now playing:</h4>
+              </header>
+
+            <!-- CD -->
+            <div class="cd">
+              <div class="cd-thumb" style="background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg')">
+              </div>
+            </div>
+
+            <!-- Song Information -->
+            <div class = "song">
+              <div class = "list-music">
+                <span class="list-music__icon"><i class="fa-solid fa-headphones"></i></span> 
+              </div>
+            
+              <div class = "song__name">
+                <h5>Ghệ yêu dấu của em</h5>
+                <h6>TLinh</h6>
+              </div>
+                           
+              <span class="favourite-music__icon">
+                <i class="fa-regular fa-heart heart-icon"></i>
+                <i class="fa-solid fa-heart heart-icon__red"></i>
+              </span>
+            </div>
+
+             <!-- Control -->
+             <div class="control">
+              <div class="btn btn-repeat">
+                <i class="fas fa-redo"></i>
+              </div>
+              <div class="btn btn-prev">
+                <i class="fas fa-step-backward"></i>
+              </div>
+              <div class="btn btn-toggle-play">
+                <i class="fas fa-pause icon-pause"></i>
+                <i class="fas fa-play icon-play"></i>
+              </div>
+              <div class="btn btn-next">
+                <i class="fas fa-step-forward"></i>
+              </div>
+              <div class="btn btn-random">
+                <i class="fas fa-random"></i>
+              </div>
+            </div>
+            <!--Thanh tiến độ dưới nút play -->
+            <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+
+            <!-- Thời gian của bài hát -->
+            <div class="progress-time">
+              <span class="progress-time__current-time">00:00</span>
+              <span class="progress-time__duration">00:00</span>
+            </div>
+
+            <!-- Volume -->
+            <div class= "volume">
+              <div class= "volume__icon">
+                <i class="fa-solid fa-volume-high volume__icon--on"></i>
+                <i class="fa-solid fa-volume-xmark volume__icon--mute"></i>
+              </div>
+
+              <div class= "volume-bar">
+                <input class="volume-bar-value" type="range" value="1" step="0.1" min="0" max="1">
+              </div>
+            </div>
+            
+            <audio id="audio" src=""></audio> <!-- Thẻ audio -->
+          </div>
+
+          <!-- PlayList -->
+            <div class = "playList">
+              <div class = "playList__container ">
+                <header class = payList__header>
+                  <h3 class = "playList__title">My playlist</h3>
+                  <span class = "playList__close">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                </header>
+
+                <ul class="playList__list">
+
+                </ul>
+                
+              </div>
+            </div>
+          <!-- PlayList -->
+  </div>
+
+  <script src="https://kit.fontawesome.com/b2c9f77290.js" crossorigin="anonymous"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
